@@ -14,9 +14,7 @@ public class Resume
         Console.WriteLine($"Jobs:");
         foreach (Job qJobs in _jobs)
         {
-            Console.WriteLine(
-                $"{qJobs._jobTitle} ({qJobs._company}) {qJobs._startYear}-{qJobs._endYear}"
-            );
+            qJobs.Display();
         }
     }
 }
