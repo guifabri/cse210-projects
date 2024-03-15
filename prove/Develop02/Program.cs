@@ -1,4 +1,5 @@
 using System;
+using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
 
 class Program
@@ -7,6 +8,7 @@ class Program
     {
         PromptGenerator prompt = new PromptGenerator();
         Entry getEntry = new Entry();
+        Journal userSave = new Journal();
         float number = -1;
         while (number != 5)
         {
@@ -25,6 +27,24 @@ class Program
                 getEntry._promptText = prompt.GetRandomPrompt();
                 Console.WriteLine(getEntry._promptText);
                 getEntry._entryText = Console.ReadLine();
+
+                userSave.AddEntry(getEntry);
+            }
+            else if (number == 2)
+            {
+                userSave.DisplayAll();
+            }
+            else if (number == 3)
+            {
+                Console.WriteLine("Where do you want to save the Journal?");
+                string textFile = Console.ReadLine();
+                userSave.SaveToFile(textFile);
+            }
+            else if (number == 4)
+            {
+                Console.WriteLine("What file do you want to open?");
+                string fileOpen = Console.ReadLine();
+                userSave.LoadFromFile(fileOpen);
             }
         }
     }
