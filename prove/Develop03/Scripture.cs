@@ -2,10 +2,10 @@ using System.Linq.Expressions;
 
 public class Scripture
 {
-    private Reference _reference;
-    private List<Word> _words;
+    private Reference _reference; // Reference object for the scripture.
+    private List<Word> _words; // List to store individual words of the scripture.
 
-    // Constructor de la clase que inicializa la referencia y la lista de palabras
+    // Constructor initializes the reference and word list.
     public Scripture(Reference reference, string text)
     {
         _reference = reference;
@@ -17,8 +17,7 @@ public class Scripture
         }
     }
 
-    // Método para ocultar un número aleatorio de palabras
-    // Método para ocultar un número específico de palabras de manera aleatoria
+    // Method to hide a random number of words.
     public void HideRandomWords(int numberToHide)
     {
         Random rnd = new Random();
@@ -36,18 +35,18 @@ public class Scripture
 
             if (IsCompletelyHidden())
             {
-                break; // Si todas las palabras están ocultas, salimos del bucle
+                break; // Exit loop if all words are hidden.
             }
         }
     }
 
-    // Método que devuelve el texto de visualización de la referencia
+    // Method to get the display text of the scripture.
     public string GetDisplayText()
     {
-        // Obtiene el texto de visualización de la referencia
+        // Get the display text of the reference.
         string element = _reference.GetDisplayText();
         string verse = null;
-        // Recorrer el array y componer la frase
+        // Iterate through the array and compose the verse.
         foreach (Word word in _words)
         {
             verse += word.GetDisplayText() + " ";
@@ -56,19 +55,18 @@ public class Scripture
         return $"{element} {verse}";
     }
 
-    // Método que verifica si todas las palabras están completamente ocultas
-    // Método que verifica si todas las palabras están completamente ocultas
+    // Method to check if all words are completely hidden.
     public bool IsCompletelyHidden()
     {
-        // Verifica si todas las palabras están completamente ocultas
+        // Check if all words are completely hidden.
         foreach (Word word in _words)
         {
             if (!word.IsHidden())
             {
-                return false; // Si encuentra una palabra no oculta, retorna false
+                return false; // If any word is not hidden, return false.
             }
         }
 
-        return true; // Si todas las palabras están ocultas, retorna true
+        return true; // If all words are hidden, return true.
     }
 }

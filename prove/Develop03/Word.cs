@@ -1,45 +1,47 @@
 public class Word
 {
-    private string _text;
-    private bool _isHidden;
+    private string _text; // Stores the text of the word.
+    private bool _isHidden; // Indicates whether the word is hidden or not.
 
-    // Constructor que inicializa una palabra con el texto proporcionado
+    // Constructor initializes a word with the provided text.
     public Word(string text)
     {
         _text = text;
-        _isHidden = false;
+        _isHidden = false; // By default, the word is not hidden.
     }
 
-    // Método para ocultar la palabra
+    // Method to hide the word.
     public void Hide()
     {
-        _isHidden = true;
+        _isHidden = true; // Sets the word as hidden.
     }
 
-    // Método para mostrar la palabra
+    // Method to show the word.
     public void Show()
     {
-        // Lógica para mostrar la palabra
+        // Logic to show the word.
+        // This method is currently not implemented.
     }
 
-    // Método para verificar si la palabra está oculta
+    // Method to check if the word is hidden.
     public bool IsHidden()
     {
-        // Devuelve un valor que indica si la palabra está oculta
+        // Returns a value indicating whether the word is hidden.
         return _isHidden;
     }
 
-    // Método para obtener el texto de visualización de la palabra
+    // Method to obtain the display text of the word.
     public string GetDisplayText()
     {
-        // Devuelve el texto de visualización de la palabra
+        // Returns the display text of the word.
+        // If the word is hidden, it returns "___", otherwise, it returns the actual text.
         if (!_isHidden)
         {
-            return _text;
+            return _text; // If not hidden, return the actual text.
         }
         else
         {
-            return "___";
+            return "___"; // If hidden, return "___".
         }
     }
 }

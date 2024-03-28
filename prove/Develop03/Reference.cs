@@ -1,11 +1,11 @@
 public class Reference
 {
-    private string _book;
-    private int _chapter;
-    private int _verse;
-    private int _endVerse;
+    private string _book; // Stores the name of the book.
+    private int _chapter; // Stores the chapter number.
+    private int _verse; // Stores the starting verse number.
+    private int _endVerse; // Stores the ending verse number if applicable.
 
-    // Constructor para referencias con un solo versículo
+    // Constructor for single-verse references.
     public Reference(string book, int chapter, int verse)
     {
         _book = book;
@@ -13,7 +13,7 @@ public class Reference
         _verse = verse;
     }
 
-    // Constructor para referencias con rango de versículos
+    // Constructor for references with a range of verses.
     public Reference(string book, int chapter, int startVerse, int endVerse)
     {
         _book = book;
@@ -22,10 +22,10 @@ public class Reference
         _endVerse = endVerse;
     }
 
-    // Método para obtener el texto de visualización de la referencia
+    // Method to obtain the display text of the reference.
     public string GetDisplayText()
     {
-        // Lógica para construir el texto de visualización
+        // Logic to construct the display text.
         string element = $"{_book} {_chapter}:{_verse}";
 
         return element;
