@@ -141,10 +141,7 @@ public class GoalManager
                 {
                     pointsToAdd += checklistGoal.GetBonusPoints();
                     _score += checklistGoal.GetBonusPoints();
-                    if (checklistGoal.GetBonusPoints() > 0)
-                    {
-                        Console.WriteLine("Bonus points unlocked!");
-                    }
+
                 }
             }
 
