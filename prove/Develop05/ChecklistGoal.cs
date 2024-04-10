@@ -24,7 +24,14 @@ public class ChecklistGoal : Goal
 
     public int GetBonusPoints()
     {
-        return _amountCompleted == _target ? _bonus : 0;
+        if (_amountCompleted == _target)
+        {
+            return _bonus;
+        }
+        else
+        {
+            return 0;
+        }
     }
 
     public override void RecordEvent()
