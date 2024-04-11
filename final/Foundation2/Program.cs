@@ -5,6 +5,7 @@ class Program
 {
     public static void Main(string[] args)
     {
+        Console.Clear();
         // Create products
         Product product1 = new Product
         {

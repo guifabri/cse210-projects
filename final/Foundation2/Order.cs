@@ -1,18 +1,30 @@
 public class Order
 {
-    public List<Product> Products { get; set; }
-    public Customer Customer { get; set; }
+    private List<Product> _products;
+    private Customer _customer;
+
+    public List<Product> Products
+    {
+        get { return _products; }
+        set { _products = value; }
+    }
+
+    public Customer Customer
+    {
+        get { return _customer; }
+        set { _customer = value; }
+    }
 
     public decimal CalculateTotalCost()
     {
         decimal totalCost = 0;
 
-        foreach (Product product in Products)
+        foreach (Product product in _products)
         {
             totalCost += product.CalculateTotalCost();
         }
 
-        if (Customer.IsInUSA())
+        if (_customer.IsInUSA())
         {
             totalCost += 5; // Shipping cost for customers in the USA
         }
@@ -28,7 +40,7 @@ public class Order
     {
         string packagingLabel = "";
 
-        foreach (Product product in Products)
+        foreach (Product product in _products)
         {
             packagingLabel += $"Product: {product.Name}, ID: {product.ProductId}\n";
         }
@@ -38,8 +50,8 @@ public class Order
 
     public string GetShippingLabel()
     {
-        string shippingLabel = $"Customer: {Customer.Name}\n";
-        shippingLabel += $"Address: {Customer.Address.GetFullAddress()}";
+        string shippingLabel = $"Customer: {_customer.Name}\n";
+        shippingLabel += $"Address: {_customer.Address.GetFullAddress()}";
 
         return shippingLabel;
     }
