@@ -1,9 +1,15 @@
 public class Reception : Event
 {
-    public string ConfirmationEmail { get; set; }
+    private string _confirmationEmail;
+
+    public string ConfirmationEmail
+    {
+        get { return _confirmationEmail; }
+        set { _confirmationEmail = value; }
+    }
 
     public override string GenerateFullDetails()
     {
-        return $"{GenerateStandardDetails()}\nConfirmation Email: {ConfirmationEmail}";
+        return $"{GenerateStandardDetails()}\nConfirmation Email: {_confirmationEmail}";
     }
 }

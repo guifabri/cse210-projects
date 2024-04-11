@@ -3,13 +3,13 @@ using System.Collections.Generic;
 
 class Activity
 {
-    private DateTime date;
-    protected int length;
+    private DateTime _date;
+    protected int _length;
 
     public Activity(DateTime date, int length)
     {
-        this.date = date;
-        this.length = length;
+        this._date = date;
+        this._length = length;
     }
 
     public virtual double GetDistance()
@@ -29,6 +29,6 @@ class Activity
 
     public virtual string GetSummary()
     {
-        return $"{date.ToString("dd MMM yyyy")} - Duration: {length} min";
+        return $"{_date.ToString("dd MMM yyyy")} - Duration: {_length} min";
     }
 }
